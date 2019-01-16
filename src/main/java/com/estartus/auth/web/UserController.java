@@ -61,8 +61,7 @@ public class UserController {
     }
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
-    public ModelAndView welcome(Model model) {
-        ModelAndView modelAndView = new ModelAndView();
+    public ModelAndView welcome(ModelAndView modelAndView) {
         modelAndView.addObject("documents", getDocuments());
         modelAndView.setViewName("index");
         return modelAndView;

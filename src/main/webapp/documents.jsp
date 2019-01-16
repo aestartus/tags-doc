@@ -44,15 +44,15 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link" href="/">
                   <span data-feather="home"></span>
-                  Inicio <span class="sr-only">(current)</span>
+                  Inicio
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/documents">
+                <a class="nav-link active" href="/documents">
                   <span data-feather="file"></span>
-                  Documentos
+                  Documentos<span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
@@ -74,39 +74,63 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">&Uacute;ltimos documentos</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <input class="form-control form-control-dark w-100" type="text" placeholder="Ingrese su b&uacute;squeda" aria-label="Search">
-                <button class="btn btn-sm btn-outline-secondary">Buscar</button>
-              </div>
-            </div>
+            <h1 class="h2">Subir documento</h1>
           </div>
+            <form>
 
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Nombre</th>
-                  <th>Fecha de creaci&oacute;n</th>
-                  <th>Hash</th>
-                  <th>Fecha de modificaci&oacute;n</th>
-                </tr>
-              </thead>
-              <tbody>
-                <c:forEach var="document" items="${documents}">
-                <tr>
-                  <td>${document.id}</td>
-                  <td>${document.nameOfFile}</td>
-                  <td>${document.creationDate}</td>
-                  <td>${document.valueOnCreation}</td>
-                  <td>${document.modificationDate}</td>
-                </tr>
-                </c:forEach>
-              </tbody>
-            </table>
-          </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Password</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              </div>
+              <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputState">State</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" class="form-control" id="inputZip">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                    Check me out
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+              <div class="custom-file form-group">
+               <input type="file" class="custom-file-input" id="customFile">
+               <label class="custom-file-label" for="customFile">Choose file</label>
+             </div>
+             </div>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+
+
         </main>
       </div>
     </div>
