@@ -76,58 +76,25 @@
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Subir documento</h1>
           </div>
-            <form>
-
+            <form id="documentForm" method="POST" action="${contextPath}/documents">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                  <label for="nameOfFile">Nombre del documento</label>
+                  <input type="text" class="form-control" id="nameOfFile" placeholder="Titulo del documento">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">Password</label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-              </div>
-              <div class="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputCity">City</label>
-                  <input type="text" class="form-control" id="inputCity">
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="inputState">State</label>
-                  <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-2">
-                  <label for="inputZip">Zip</label>
-                  <input type="text" class="form-control" id="inputZip">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck">
-                  <label class="form-check-label" for="gridCheck">
-                    Check me out
-                  </label>
+                  <label for="metaData">Tags</label>
+                  <input type="text" class="form-control" id="metaData" placeholder="">
                 </div>
               </div>
               <div class="form-group">
               <div class="custom-file form-group">
-               <input type="file" class="custom-file-input" id="customFile">
-               <label class="custom-file-label" for="customFile">Choose file</label>
+               <input type="file" class="custom-file-input" id="file">
+               <label class="custom-file-label" for="file">Escoge un Archivo</label>
              </div>
              </div>
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              <button type="submit" class="btn btn-primary">Subir</button>
             </form>
 
 
@@ -146,6 +113,10 @@
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
       feather.replace()
+      $custom-file-text: (
+        en: "Browse",
+        es: "Elegir"
+      );
     </script>
 <!-- /container -->
 

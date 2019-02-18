@@ -1,7 +1,13 @@
 package com.estartus.auth.web;
 
 import com.estartus.auth.model.Document;
+import com.estartus.auth.service.DocumentService;
+import com.estartus.auth.validator.DocumentValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,11 +25,27 @@ import java.util.UUID;
 @Controller
 public class DocumentsController {
 
+    @Autowired
+    private DocumentService documentService;
+    @Autowired
+    private DocumentValidator documentValidator;
+
     @RequestMapping(value = {"/documents"}, method = RequestMethod.GET)
     public ModelAndView requestDocumentPage(ModelAndView modelAndView){
         modelAndView.addObject("documents", getDocuments());
         modelAndView.setViewName("documents");
         return modelAndView;
+    }
+
+    @RequestMapping(value = {"/documents"}, method = RequestMethod.POST)
+    public String saveDocument(@ModelAttribute("documentForm") Document document, BindingResult bindingResult, Model model){
+        documentValidator.validate(document,bindingResult);
+        if(bindingResult.hasErrors()){
+            return "documents";
+        }
+
+        documentService.save(document);
+        return "documents";
     }
 
     private List getDocuments(){
