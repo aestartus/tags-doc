@@ -81,16 +81,16 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="nameOfFile">Nombre del documento</label>
-                  <input type="text" class="form-control" id="nameOfFile" placeholder="Titulo del documento">
+                  <input type="text" class="form-control" id="nameOfFile" name="nameOfFile" placeholder="Titulo del documento">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="metaData">Tags</label>
-                  <input type="text" class="form-control" id="metaData" placeholder="">
+                  <input type="text" class="form-control" id="metaData" name="metaData" placeholder="">
                 </div>
               </div>
               <div class="form-group">
               <div class="custom-file form-group">
-               <input type="file" class="custom-file-input" id="file">
+               <input type="file" class="custom-file-input" id="file" name="file">
                <label class="custom-file-label" for="file">Escoge un Archivo</label>
              </div>
              </div>
