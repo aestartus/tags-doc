@@ -1,9 +1,10 @@
-package com.estartus.auth.web;
+package com.estartus.tags.web;
 
-import com.estartus.auth.model.Document;
-import com.estartus.auth.service.DocumentService;
-import com.estartus.auth.service.SecurityService;
-import com.estartus.auth.validator.DocumentValidator;
+import com.estartus.tags.functions.DocumentFunctionsImpl;
+import com.estartus.tags.model.Document;
+import com.estartus.tags.service.DocumentService;
+import com.estartus.tags.service.SecurityService;
+import com.estartus.tags.validator.DocumentValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.Arrays;
-import java.util.Date;
+import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
 
 
 /**
@@ -36,6 +38,8 @@ public class DocumentsController {
     private DocumentValidator documentValidator;
     @Autowired
     private SecurityService securityService;
+    @Autowired
+    private DocumentFunctionsImpl documentFunctions;
 
     @RequestMapping(value = {"/documents"}, method = RequestMethod.GET)
     public ModelAndView requestDocumentPage(ModelAndView modelAndView){
@@ -45,12 +49,19 @@ public class DocumentsController {
     }
 
     @RequestMapping(value = {"/documents"}, method = RequestMethod.POST)
-    public String saveDocument(@ModelAttribute("documentForm") Document document, BindingResult bindingResult, Model model){
-        documentValidator.validate(document,bindingResult);
-        if(bindingResult.hasErrors()){
-            return "documents";
-        }
+    public String saveDocument( @RequestParam("file") MultipartFile file,
+                                @RequestParam("nameOfFile") String nameOfFile,
+                                @RequestParam("metaData") String metaData,
+                                RedirectAttributes redirectAttributes) throws IOException {
+        Document document = new Document(securityService.findLoggedInUsername());
+        document.setNameOfFile(nameOfFile);
+        document.setFile(file.getBytes());
+        document.setPages(documentFunctions.extractPages(document.getFile()));
+
+        //documentValidator.validate(document,bindingResult);
+
         logger.info("usuario activo: {} grabando objeto: {}",document.getOwner(),document.getNameOfFile());
+
         documentService.save(document);
         logger.info("usuario activo: {} objeto almacenado: {}",document.getOwner(),document.getNameOfFile());
         return "documents";

@@ -1,7 +1,7 @@
-package com.estartus.auth.validator;
+package com.estartus.tags.validator;
 
-import com.estartus.auth.model.User;
-import com.estartus.auth.service.UserService;
+import com.estartus.tags.model.User;
+import com.estartus.tags.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

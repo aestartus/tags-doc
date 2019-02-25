@@ -1,10 +1,10 @@
-package com.estartus.auth.web;
+package com.estartus.tags.web;
 
-import com.estartus.auth.model.User;
-import com.estartus.auth.service.DocumentService;
-import com.estartus.auth.service.SecurityService;
-import com.estartus.auth.service.UserService;
-import com.estartus.auth.validator.UserValidator;
+import com.estartus.tags.model.User;
+import com.estartus.tags.service.DocumentService;
+import com.estartus.tags.service.SecurityService;
+import com.estartus.tags.service.UserService;
+import com.estartus.tags.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

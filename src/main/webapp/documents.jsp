@@ -76,7 +76,7 @@
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Subir documento</h1>
           </div>
-            <form id="documentForm" method="POST" action="${contextPath}/documents">
+            <form id="documentForm" method="POST" enctype="multipart/form-data" action="${contextPath}/documents">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
               <div class="form-row">
                 <div class="form-group col-md-6">

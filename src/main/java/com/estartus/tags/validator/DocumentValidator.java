@@ -1,6 +1,6 @@
-package com.estartus.auth.validator;
+package com.estartus.tags.validator;
 
-import com.estartus.auth.model.Document;
+import com.estartus.tags.model.Document;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;

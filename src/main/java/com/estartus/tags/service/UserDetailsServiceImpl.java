@@ -1,8 +1,8 @@
-package com.estartus.auth.service;
+package com.estartus.tags.service;
 
-import com.estartus.auth.repository.UserRepository;
-import com.estartus.auth.model.Role;
-import com.estartus.auth.model.User;
+import com.estartus.tags.repository.UserRepository;
+import com.estartus.tags.model.Role;
+import com.estartus.tags.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

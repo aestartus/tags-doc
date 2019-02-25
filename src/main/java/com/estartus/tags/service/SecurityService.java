@@ -1,4 +1,4 @@
-package com.estartus.auth.service;
+package com.estartus.tags.service;
 
 public interface SecurityService {
     String findLoggedInUsername();

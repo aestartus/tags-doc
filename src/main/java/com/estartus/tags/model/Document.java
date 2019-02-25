@@ -1,4 +1,4 @@
-package com.estartus.auth.model;
+package com.estartus.tags.model;
 
 import org.springframework.data.annotation.Id;
 
@@ -21,6 +21,7 @@ public class Document {
     private String valueOnCreation;
     private Date modificationDate;
     private String owner;
+    private List<Page> pages;
 
     private Document(){}
 
@@ -98,5 +99,13 @@ public class Document {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public List<Page> getPages() {
+        return pages;
+    }
+
+    public void setPages(List<Page> pages) {
+        this.pages = pages;
     }
 }

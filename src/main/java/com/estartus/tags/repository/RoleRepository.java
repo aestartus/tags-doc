@@ -1,6 +1,6 @@
-package com.estartus.auth.repository;
+package com.estartus.tags.repository;
 
-import com.estartus.auth.model.Role;
+import com.estartus.tags.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Long>{

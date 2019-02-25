@@ -1,4 +1,4 @@
-package com.estartus.auth.model;
+package com.estartus.tags.model;
 
 import javax.persistence.*;
 import java.util.Set;

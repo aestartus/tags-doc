@@ -1,6 +1,6 @@
-package com.estartus.auth.repository;
+package com.estartus.tags.repository;
 
-import com.estartus.auth.model.Document;
+import com.estartus.tags.model.Document;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

@@ -1,8 +1,8 @@
-package com.estartus.auth.service;
+package com.estartus.tags.service;
 
-import com.estartus.auth.repository.UserRepository;
-import com.estartus.auth.model.User;
-import com.estartus.auth.repository.RoleRepository;
+import com.estartus.tags.repository.UserRepository;
+import com.estartus.tags.model.User;
+import com.estartus.tags.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

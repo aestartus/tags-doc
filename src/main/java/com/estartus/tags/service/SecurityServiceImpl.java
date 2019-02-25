@@ -1,4 +1,4 @@
-package com.estartus.auth.service;
+package com.estartus.tags.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

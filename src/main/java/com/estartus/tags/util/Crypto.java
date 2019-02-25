@@ -1,4 +1,4 @@
-package com.estartus.auth.util;
+package com.estartus.tags.util;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

@@ -1,4 +1,4 @@
-package com.estartus.auth;
+package com.estartus.tags;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

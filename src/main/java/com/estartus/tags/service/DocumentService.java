@@ -1,6 +1,6 @@
-package com.estartus.auth.service;
+package com.estartus.tags.service;
 
-import com.estartus.auth.model.Document;
+import com.estartus.tags.model.Document;
 
 import java.util.List;
 

@@ -1,16 +1,14 @@
-package com.estartus.auth.service;
+package com.estartus.tags.service;
 
-import com.estartus.auth.model.Document;
-import com.estartus.auth.model.User;
-import com.estartus.auth.repository.DocumentRepository;
-import com.estartus.auth.util.Crypto;
+import com.estartus.tags.model.Document;
+import com.estartus.tags.repository.DocumentRepository;
+import com.estartus.tags.util.Crypto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author aestartus

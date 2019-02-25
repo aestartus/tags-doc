@@ -1,6 +1,6 @@
-package com.estartus.auth.service;
+package com.estartus.tags.service;
 
-import com.estartus.auth.model.User;
+import com.estartus.tags.model.User;
 
 public interface UserService {
     void save(User user);
