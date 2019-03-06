@@ -29,10 +29,22 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
+    public void remove(String id){
+        documentRepository.delete(id);
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public List<Document> findDocumentsByOwner(String owner) {
         return documentRepository.findDocumentsByOwner(owner);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Document findDocumentsById(String id) {
+        return documentRepository.findOne(id);
+    }
+
     @Override
     @Transactional(readOnly = true)
     public List<Document> findAll() {

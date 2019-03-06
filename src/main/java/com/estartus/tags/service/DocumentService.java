@@ -15,5 +15,9 @@ public interface DocumentService {
 
     List<Document> findDocumentsByOwner(String owner);
 
+    Document findDocumentsById(String id);
+
     List<Document> findAll();
+
+    void remove(String id);
 }

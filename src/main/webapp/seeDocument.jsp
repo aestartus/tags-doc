@@ -23,6 +23,46 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
+        <script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
+
+        <!-- Icons -->
+        <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+        <script>
+          feather.replace()
+          $custom-file-text: (
+            en: "Browse",
+            es: "Elegir"
+          );
+        </script>
+        <script>
+            function imgDecodeBase64(imagenBase64){
+                var binaryImg = atob(imagenBase64);
+                var length = binaryImg.length;
+                var ab = new ArrayBuffer(length);
+                var ua = new Uint8Array(ab);
+                for (var i = 0; i < length; i++) {
+                    ua[i] = binaryImg.charCodeAt(i);
+                }
+                var blob = new Blob([ab], {
+                    type: "image/jpeg"
+                });
+
+                return  URL.createObjectURL(blob);
+            }
+
+            function showImage(id){
+                var imagen = document.getElementById("pagina"+id).value;
+                var blob = imgDecodeBase64(imagen);
+                console.log(blob);
+                $("#"+id).html();
+                $("#"+id).html("<img class=\"img-fluid\" src=\""+blob+"\">");
+            }
+        </script>
 </head>
 <body>
 <c:if test="${pageContext.request.userPrincipal.name != null}">
@@ -44,15 +84,15 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link" href="/index">
                   <span data-feather="home"></span>
-                  Inicio <span class="sr-only">(current)</span>
+                  Inicio
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/documents">
+                <a class="nav-link active" href="/documents">
                   <span data-feather="file"></span>
-                  Documentos
+                  Documentos<span class="sr-only">(current)</span>
                 </a>
               </li>
             </ul>
@@ -62,55 +102,27 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">&Uacute;ltimos documentos</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <input class="form-control form-control-dark w-100" type="text" placeholder="Ingrese su b&uacute;squeda" aria-label="Search">
-                <button class="btn btn-sm btn-outline-secondary">Buscar</button>
-              </div>
-            </div>
+            <h1 class="h2">${document.nameOfFile}</h1>
           </div>
-
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Fecha de creaci&oacute;n</th>
-                  <th>Fecha de modificaci&oacute;n</th>
-                  <th>Ver Documento</th>
-                  <th>Eliminar Documento</th>
-                </tr>
-              </thead>
-              <tbody>
-                <c:forEach var="document" items="${documents}">
-                <tr>
-                  <td>${document.nameOfFile}</td>
-                  <td>${document.creationDate}</td>
-                  <td>${document.modificationDate}</td>
-                  <td><a href="/documents/see/${document.id}">ver</a></td>
-                  <td><a href="/documents/delete/${document.id}">eliminar</a></td>
-                </tr>
+          <div class="container">
+                <c:forEach var="page" items="${pages}">
+                <div class="row">
+                    <div class="col">
+                        <input type="hidden" id="pagina${page.number}" value="${page.page}"/>
+                        <div id="${page.number}"></div>
+                        <script>
+                            showImage(${page.number});
+                        </script>
+                    </div>
+                    <div class="col">
+                    </div>
                 </c:forEach>
-              </tbody>
-            </table>
           </div>
         </main>
       </div>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
-    <script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-    <script>
-      feather.replace()
-    </script>
 <!-- /container -->
 
 </body>

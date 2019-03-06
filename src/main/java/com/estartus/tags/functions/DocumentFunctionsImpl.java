@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 /**
@@ -35,7 +36,7 @@ public class DocumentFunctionsImpl implements DocumentFunctions{
 
             Page pageDoc = new Page();
             pageDoc.setNumber(page+1);
-            pageDoc.setPage(baos.toByteArray());
+            pageDoc.setPage(Base64.getEncoder().encodeToString(baos.toByteArray()));
 
             baos.close();
 

@@ -8,15 +8,15 @@ import java.util.List;
  */
 public class Page {
 
-    byte[] page;
+    String page;
     int number;
     List<String> tags;
 
-    public byte[] getPage() {
+    public String getPage() {
         return page;
     }
 
-    public void setPage(byte[] page) {
+    public void setPage(String page) {
         this.page = page;
     }
 
